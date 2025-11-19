@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faiz Azmer - Web Designer & System Integration Specialist</title>
+    <title>Faiz Azmer - Creative Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -12,592 +12,632 @@
         }
 
         :root {
-            --primary: #0F172A;
-            --secondary: #64748B;
-            --accent: #3B82F6;
-            --light: #F8FAFC;
-            --white: #FFFFFF;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --purple: #7C1D5E;
+            --pink: #C2298A;
+            --gold: #F4C430;
+            --dark: #0a0a0a;
+            --light: #fafafa;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            background: var(--light);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Navigation */
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Minimal Nav */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 3rem;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav .container {
-            max-width: 1200px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        nav .logo span {
-            background: var(--gradient);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--gold), var(--pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         nav ul {
             display: flex;
+            gap: 3rem;
             list-style: none;
-            gap: 2rem;
         }
 
         nav a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s;
+            letter-spacing: -0.3px;
         }
 
         nav a:hover {
-            color: var(--accent);
+            color: var(--gold);
         }
 
-        /* Hero Section */
+        /* Hero - Full Screen with Photo Background */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
+            position: relative;
             display: flex;
             align-items: center;
-            padding-top: 80px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-        }
-
-        .hero .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .profile-photo {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            justify-content: center;
             overflow: hidden;
-            margin: 0 auto 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            border: 8px solid white;
         }
 
-        .profile-photo img {
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 20%;
+            filter: brightness(0.4);
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(124, 29, 94, 0.7) 0%, 
+                rgba(194, 41, 138, 0.6) 50%, 
+                rgba(0, 0, 0, 0.8) 100%);
         }
 
-        .hero-content .gradient-text {
-            background: var(--gradient);
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--gold) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--secondary);
-            margin-bottom: 2rem;
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            color: var(--gold);
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .tags {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
+        .hero-desc {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: -0.3px;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        .tag {
-            padding: 0.5rem 1rem;
-            background: white;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--primary);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
+        .hero-cta {
+            display: inline-flex;
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 8px;
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            font-weight: 500;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: -0.3px;
         }
 
         .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, var(--gold), #FFE55C);
+            color: #000;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 20px 40px rgba(244, 196, 48, 0.4);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+            border-color: var(--gold);
+            background: rgba(244, 196, 48, 0.1);
         }
 
-        .hero-visual {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
             position: relative;
         }
 
-        .floating-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            animation: float 3s ease-in-out infinite;
+        .scroll-indicator span:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: scroll 2s infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
         }
 
-        .code-snippet {
-            background: var(--primary);
-            color: #10B981;
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            margin-top: 1rem;
+        @keyframes scroll {
+            0% { opacity: 1; top: 10px; }
+            100% { opacity: 0; top: 30px; }
         }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 0;
+        /* About Section - Split */
+        .about {
+            padding: 0;
+            background: #fff;
+            color: #000;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .about-grid {
+            max-width: 100%;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            align-items: stretch;
+            min-height: 100vh;
         }
 
-        .section-header {
+        .about-image {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-content {
+            padding: 8rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -0.3px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--purple);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Portfolio - Bento Grid */
+        .portfolio {
+            padding: 8rem 3rem;
+            background: #000;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
             text-align: center;
             margin-bottom: 4rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--secondary);
-        }
-
-        /* Services/Expertise */
-        .services-grid {
+        .bento-grid {
+            max-width: 1600px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            grid-auto-rows: 300px;
         }
 
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .service-card li {
-            padding: 0.5rem 0;
-            color: var(--secondary);
+        .bento-item {
             position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .service-card li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Portfolio/Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        .bento-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
         }
 
-        .project-image {
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
+        .bento-item:nth-child(4) {
+            grid-column: span 2;
+            grid-row: span 2;
         }
 
-        .project-content {
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bento-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .bento-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .project-content h3 {
+        .bento-item:hover .bento-overlay {
+            transform: translateY(0);
+        }
+
+        .bento-overlay h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            font-weight: 700;
         }
 
-        .project-content p {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
+        .bento-overlay p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
         }
 
-        .tech-stack {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+        /* Skills - Clean Infographic Style */
+        .skills {
+            padding: 10rem 3rem;
+            background: #fff;
+            color: #000;
         }
 
-        .tech-tag {
-            padding: 0.4rem 0.8rem;
-            background: var(--light);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .project-link:hover {
-            gap: 0.75rem;
-        }
-
-        /* Skills */
         .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 5rem;
         }
 
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .skill-category h3:before {
-            content: "";
-            width: 4px;
-            height: 24px;
-            background: var(--gradient);
-            border-radius: 2px;
+        .skill-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--purple);
+            opacity: 0.2;
+            line-height: 1;
         }
 
-        .skill-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .skill-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--purple);
+        }
+
+        .skill-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem 4rem;
         }
 
         .skill-item {
+            position: relative;
+        }
+
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .skill-name {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
         .skill-level {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 700;
         }
 
-        /* Contact */
-        .contact-section {
-            background: white;
+        .skill-bar {
+            height: 3px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple), var(--pink));
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+        }
+
+        .skill-item.visible .skill-progress {
+            width: var(--progress);
+        }
+
+        @media (max-width: 768px) {
+            .skill-number {
+                font-size: 2.5rem;
+            }
+
+            .skill-title {
+                font-size: 1.8rem;
+            }
+
+            .skill-items {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* Contact - Premium Simple */
+        .contact {
+            padding: 10rem 3rem;
+            background: #000;
         }
 
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
+        .contact h2 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
             margin-bottom: 1rem;
-            color: var(--primary);
+            letter-spacing: -0.03em;
+            color: var(--gold);
+            line-height: 1;
         }
 
-        .contact-info p {
-            color: var(--secondary);
-            margin-bottom: 2rem;
+        .contact-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6rem;
+            font-weight: 300;
         }
 
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            text-align: left;
         }
 
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .contact-item {
+            padding: 0;
+            background: none;
+            border: none;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
+        .contact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
 
-        .contact-method a {
-            color: var(--primary);
+        .contact-value {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .contact-value a {
+            color: #fff;
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .contact-method a:hover {
-            color: var(--accent);
+        .contact-value a:hover {
+            color: var(--gold);
         }
 
-        .contact-form {
-            background: var(--light);
-            padding: 2.5rem;
-            border-radius: 16px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #E2E8F0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
         }
 
         /* Footer */
         footer {
-            background: var(--primary);
-            color: white;
+            padding: 3rem;
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            padding: 3rem 0;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        footer p {
-            color: #CBD5E1;
-        }
-
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .hero .container,
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .profile-photo {
-                width: 200px;
-                height: 200px;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
+            nav {
+                padding: 1rem 1.5rem;
             }
 
             nav ul {
-                gap: 0.75rem;
-                font-size: 0.85rem;
+                display: none;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .hero-title {
+                font-size: 3.5rem;
             }
 
-            .section-header h2 {
-                font-size: 2rem;
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+                min-height: auto;
             }
 
-            .projects-grid,
-            .services-grid,
-            .skills-container {
+            .about-image {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .about-content {
+                padding: 4rem 2rem;
+            }
+
+            .stats {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.6s ease-out;
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .fade-in {
-                opacity: 0;
-                transform: translateY(30px);
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
             }
-            
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
+
+            .bento-item:nth-child(1),
+            .bento-item:nth-child(4) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
             }
         }
     </style>
@@ -606,13 +646,11 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Faiz <span>Azmer</span></div>
+            <div class="logo">FAIZ AZMER</div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -620,357 +658,279 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-photo">
-                    <img src="profile-photo.png" alt="Mohamad Faiz Azmer">
-                </div>
-                <h1>
-                    <span class="gradient-text">Mohamad Faiz Azmer</span><br>
-                    Bin Md Ali
-                </h1>
-                <p>Operations | System Integration | Design<br>
-                9+ years transforming business operations through intelligent automation and seamless system integration.</p>
-                
-                <div class="tags">
-                    <span class="tag">Operations Management</span>
-                    <span class="tag">System Integration</span>
-                    <span class="tag">Web Design</span>
-                    <span class="tag">Make.com Expert</span>
-                </div>
-
-                <div class="cta-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
+        <img src="profile-photo.png" alt="Faiz Azmer" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">PORTFOLIO</h1>
+            <p class="hero-subtitle">CREATIVE × OPERATIONS × SYSTEMS</p>
+            <p class="hero-desc">Transforming bold visions into reality through innovative design and intelligent automation</p>
+            <div class="hero-cta">
+                <a href="#work" class="btn btn-primary">View Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
 
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <h4 style="margin-bottom: 1rem;">🎯 What I Do</h4>
-                    <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                        End-to-end business solutions from concept to execution
-                    </p>
-                    <div class="code-snippet">
-                        <div>// Automation Pipeline</div>
-                        <div>Design → Develop → Integrate</div>
-                        <div>→ Automate → Optimize</div>
-                        <div style="color: #10B981;">✓ 9 Years Experience</div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-grid">
+            <img src="profile-photo.png" alt="Faiz Azmer" class="about-image">
+            <div class="about-content">
+                <h2>Mohamad Faiz Azmer</h2>
+                <p>Creative operations specialist with 9+ years of experience delivering high-impact design solutions and seamless system integrations for leading beauty brands.</p>
+                <p>From bold marketing campaigns to sophisticated automation systems, I bridge the gap between creative vision and technical execution.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">9+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Brands Served</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services/Expertise -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>What I Do Best</h2>
-                <p>Specialized in creating efficient, automated web solutions</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">💼</div>
-                    <h3>Operations Management</h3>
-                    <p>9+ years managing end-to-end business operations including e-commerce, inventory, and performance analysis.</p>
-                    <ul>
-                        <li>E-Commerce Operations (Shopee/Lazada)</li>
-                        <li>Database & Report Management</li>
-                        <li>Stock Control & Inventory</li>
-                        <li>Performance Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-icon">⚙️</div>
-                    <h3>System Integration</h3>
-                    <p>Expert in building automated workflows and seamless system integrations using Make.com and custom solutions.</p>
-                    <ul>
-                        <li>Make.com Automation Expert</li>
-                        <li>Website & System Integration</li>
-                        <li>Database & Dashboard Development</li>
-                        <li>AI & Chatbot Integration</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-icon">🎨</div>
-                    <h3>Design & Development</h3>
-                    <p>Creating professional marketing materials, websites, and digital content that drive business results.</p>
-                    <ul>
-                        <li>Adobe Photoshop & Illustrator</li>
-                        <li>Website Design & Development</li>
-                        <li>Social Media Content Design</li>
-                        <li>Marketing Materials</li>
-                    </ul>
+    <!-- Portfolio - Bento Grid -->
+    <section id="work" class="portfolio">
+        <h2 class="section-title">FEATURED WORK</h2>
+        <div class="bento-grid">
+            <div class="bento-item">
+                <img src="lucky-draw-full.jpg" alt="Lucky Draw Campaign">
+                <div class="bento-overlay">
+                    <h3>RM5,000 Lucky Draw</h3>
+                    <p>Complete campaign design with QR integration & live automated system</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" style="background: white;">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Featured Projects</h2>
-                <p>Real-world applications showcasing design and automation expertise</p>
+            <div class="bento-item">
+                <img src="product-packaging.jpg" alt="Product Packaging">
+                <div class="bento-overlay">
+                    <h3>Nadeen Beauty Packaging</h3>
+                    <p>Premium skincare product design with gold finishing</p>
+                </div>
             </div>
-
-            <div class="projects-grid">
-                <div class="project-card fade-in">
-                    <div class="project-image">🎰</div>
-                    <div class="project-content">
-                        <h3>Lucky Draw System 2025</h3>
-                        <p>Advanced automated lucky draw system with QR scanning, real-time winner selection, and seamless prize distribution workflow.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Web Design</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Make.com</span>
-                            <span class="tech-tag">QR Scanner</span>
-                        </div>
-                        <a href="https://www.nadeenbeau.com/lucky-draw-2025/" target="_blank" class="project-link">
-                            View Live Project →
-                        </a>
-                    </div>
+            <div class="bento-item">
+                <img src="business-card.jpg" alt="Business Cards">
+                <div class="bento-overlay">
+                    <h3>Brand Collateral</h3>
+                    <p>Business cards with luxury gold hot stamping</p>
                 </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">📋</div>
-                    <div class="project-content">
-                        <h3>Automated Form System</h3>
-                        <p>Intelligent form submission system with Make.com integration for automatic data processing and notifications.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">Make.com</span>
-                            <span class="tech-tag">Google Sheets</span>
-                            <span class="tech-tag">Webhook</span>
-                        </div>
-                        <a href="#contact" class="project-link">
-                            Request Demo →
-                        </a>
-                    </div>
+            </div>
+            <div class="bento-item">
+                <img src="automation-system.jpg" alt="Automation System">
+                <div class="bento-overlay">
+                    <h3>Make.com Automation</h3>
+                    <p>Complex workflow automation with 50+ integrated modules</p>
                 </div>
-
-                <div class="project-card fade-in">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <h3>Business Dashboard</h3>
-                        <p>Real-time business analytics dashboard with automated data synchronization from multiple sources.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Dashboard Design</span>
-                            <span class="tech-tag">Data Viz</span>
-                            <span class="tech-tag">Automation</span>
-                            <span class="tech-tag">Google Sheets</span>
-                        </div>
-                        <a href="#contact" class="project-link">
-                            Learn More →
-                        </a>
-                    </div>
+            </div>
+            <div class="bento-item">
+                <img src="bunting.jpg" alt="Marketing Materials">
+                <div class="bento-overlay">
+                    <h3>Event Marketing</h3>
+                    <p>Large format bunting & banner designs</p>
+                </div>
+            </div>
+            <div class="bento-item">
+                <img src="raya-card.jpg" alt="Seasonal Design">
+                <div class="bento-overlay">
+                    <h3>Seasonal Campaigns</h3>
+                    <p>Raya greeting cards & festive marketing materials</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Technical Skills</h2>
-                <p>Tools and technologies I work with daily</p>
+    <section id="skills" class="skills">
+        <h2 class="section-title" style="color: var(--purple);">EXPERTISE</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-number">01</div>
+                    <div class="skill-title">Creative Design</div>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Adobe Photoshop</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Adobe Illustrator</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Brand Identity Design</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Marketing Campaigns</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Packaging Design</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3>Business & Operations</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Operations Management</span>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-number">02</div>
+                    <div class="skill-title">Operations Management</div>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Business Operations</span>
                             <span class="skill-level">Expert</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Inventory & Stock Control</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>E-Commerce (Shopee/Lazada)</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Team Coordination</span>
                             <span class="skill-level">Advanced</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Report & Data Handling</span>
-                            <span class="skill-level">Expert</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Performance Analytics</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="skill-category fade-in">
-                    <h3>Technical & System</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Website & System Integration</span>
+            <div class="skill-category">
+                <div class="skill-header">
+                    <div class="skill-number">03</div>
+                    <div class="skill-title">System Integration</div>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Make.com Automation</span>
                             <span class="skill-level">Expert</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Database & Dashboard</span>
-                            <span class="skill-level">Advanced</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Microsoft Office / Google Workspace</span>
-                            <span class="skill-level">Expert</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>AI & Automation</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Make.com</span>
-                            <span class="skill-level">Expert</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">WhatsApp & Facebook Chatbot</span>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>System Integration</span>
                             <span class="skill-level">Advanced</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">AI Workflow Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Database Management</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Web Development</span>
                             <span class="skill-level">Proficient</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="skill-category fade-in">
-                    <h3>Design & E-Commerce</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Adobe Photoshop / Illustrator</span>
-                            <span class="skill-level">Advanced</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Social Media Content Design</span>
-                            <span class="skill-level">Advanced</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Shopee / Lazada Management</span>
-                            <span class="skill-level">Expert</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Experience -->
-    <section id="experience" style="background: white;">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Work Experience</h2>
-                <p>9+ years of progressive responsibility in operations and system integration</p>
-            </div>
-
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="service-card fade-in" style="margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <div>
-                            <h3 style="margin-bottom: 0.5rem;">Assistant Operation Manager</h3>
-                            <p style="color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">Nadeen Beauty Sdn. Bhd.</p>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>OCR Technology</span>
+                            <span class="skill-level">Proficient</span>
                         </div>
-                        <span style="color: var(--secondary); font-weight: 500;">2023 – Present</span>
-                    </div>
-                    <ul>
-                        <li>Oversee daily business operations including e-commerce and social media management</li>
-                        <li>Handle report generation, database management, and performance analysis</li>
-                        <li>Manage printing, design marketing materials, and coordinate digital campaigns</li>
-                        <li>Ensure smooth system operations and process efficiency</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in" style="margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <div>
-                            <h3 style="margin-bottom: 0.5rem;">System & Integration Executive</h3>
-                            <p style="color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">Sifuim</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
                         </div>
-                        <span style="color: var(--secondary); font-weight: 500;">2022 – 2023</span>
                     </div>
-                    <ul>
-                        <li>Designed and maintained company websites and landing pages</li>
-                        <li>Built automation workflows and applications using Make.com</li>
-                        <li>Developed and managed system integrations to improve business processes</li>
-                        <li>Assisted clients by troubleshooting and resolving technical issues efficiently</li>
-                    </ul>
-                </div>
-
-                <div class="service-card fade-in">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <div>
-                            <h3 style="margin-bottom: 0.5rem;">System Department Executive</h3>
-                            <p style="color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">Adleesya Beauty Sdn. Bhd.</p>
-                        </div>
-                        <span style="color: var(--secondary); font-weight: 500;">2017 – 2022</span>
-                    </div>
-                    <ul>
-                        <li>Developed and maintained the company website and internal systems</li>
-                        <li>Designed promotional materials using Adobe Illustrator and Photoshop</li>
-                        <li>Built system integrations for forms, databases, and performance dashboards</li>
-                        <li>Supported e-commerce operations and process automation</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Let's Work Together</h2>
-                <p>Have a project in mind? Let's discuss how I can help</p>
-            </div>
-
-            <div class="contact-container">
-                <div class="contact-info fade-in">
-                    <h3>Get In Touch</h3>
-                    <p>I'm always interested in hearing about new projects and opportunities. Whether you need operations management, system integration, or automation solutions, I'm here to help.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <strong>Email</strong><br>
-                                <a href="/cdn-cgi/l/email-protection#ccadb6a1a9beaaada5b68caba1ada5a0e2afa3a1"><span class="__cf_email__" data-cfemail="d2b3a8bfb7a0b4b3bba892b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">📱</div>
-                            <div>
-                                <strong>Phone</strong><br>
-                                <a href="tel:+60113181154">+6011 3181 1154</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <strong>Location</strong><br>
-                                Negeri Sembilan, Malaysia
-                            </div>
-                        </div>
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>LET'S CREATE</h2>
+            <p class="contact-subtitle">Ready to bring your vision to life</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">
+                        <a href="/cdn-cgi/l/email-protection#b2d3c8dfd7c0d4d3dbc8f2d5dfd3dbde9cd1dddf"><span class="__cf_email__" data-cfemail="c5a4bfa8a0b7a3a4acbf85a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a>
                     </div>
                 </div>
-
-                <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                    </form>
+                <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:+60113181154">+6011 3181 1154</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">
+                        Negeri Sembilan, Malaysia
+                    </div>
                 </div>
             </div>
         </div>
@@ -978,67 +938,12 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Mohamad Faiz Azmer Bin Md Ali. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Operations Manager | System Integration Specialist | Design Expert</p>
-        </div>
+        <p>&copy; 2025 Mohamad Faiz Azmer. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Smooth scrolling
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-
-        // Active nav link
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('nav a').forEach(link => {
-                link.style.color = '';
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.style.color = 'var(--accent)';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                document.querySelector(t
